@@ -24,7 +24,7 @@
                     <h1>PlantVeda <span class="version">Mk3</span></h1>
                     <p class="subtitle">AI-Driven Plant Recommendation System</p>
 
-                    <form method="POST" action="/" onsubmit="showLoader()">
+                    <form method="POST" action="/" target="_blank" onsubmit="showSuccess()">
                         <div class="form-group">
                             <label>Target Location</label>
                             <input type="text" name="place" placeholder="e.g. Kolkata, WB" required>
@@ -69,8 +69,12 @@
                         <button type="submit" class="submit-btn">Generate Report</button>
                     </form>
                     <div class="result">
-                         {% if error %}
-                         <div class="error-box"><p>⚠️ {{ error }}</p></div>
+                        <div class="success-box" id="successMsg" style="display:none;">
+                            <h3>✅ Report Generated!</h3>
+                            <p>Your PDF has opened in a new tab.</p>
+                        </div>
+                        {% if error %}
+                            <div class="error-box"><p>⚠️ {{ error }}</p></div>
                         {% endif %}
                     </div>
                 </div>
@@ -82,6 +86,12 @@
         function showLoader() {
             document.getElementById('loader').style.display = 'flex';
         }
-    </script>
-</body>
+        function showSuccess() {
+            setTimeout(function() {
+                document.getElementById('loader').style.display = 'none';
+                document.getElementById('successMsg').style.display = 'block';
+            }, 3000); // shows after 3 seconds
+        }
+        </script>
+    </body>
 </html>

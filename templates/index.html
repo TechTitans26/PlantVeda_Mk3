@@ -83,15 +83,21 @@
     </main>
 
     <script>
-        function showLoader() {
-            document.getElementById('loader').style.display = 'flex';
-        }
-        function showSuccess() {
-            setTimeout(function() {
-                document.getElementById('loader').style.display = 'none';
-                document.getElementById('successMsg').style.display = 'block';
-            }, 3000); // shows after 3 seconds
-        }
-        </script>
+    function showLoader() {
+        document.getElementById('loader').style.display = 'flex';
+        document.querySelector('.submit-btn').disabled = true;
+    }
+    function showSuccess() {
+        setTimeout(function() {
+            document.getElementById('loader').style.display = 'none';
+            document.getElementById('successMsg').style.display = 'block';
+            document.querySelector('.submit-btn').disabled = false;
+        }, 3000);
+
+        setTimeout(function() {
+            document.getElementById('successMsg').style.display = 'none';
+        }, 8000); // hides success message after 8 seconds
+    }
+    </script>
     </body>
 </html>

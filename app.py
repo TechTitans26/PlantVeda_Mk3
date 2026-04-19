@@ -80,7 +80,7 @@ def index():
             return send_file(
             pdf_buffer,
             mimetype="application/pdf",
-            as_attachment=True,
+            as_attachment=False,
             download_name=f"PlantVeda_Report_{timestamp}.pdf"
             )
         

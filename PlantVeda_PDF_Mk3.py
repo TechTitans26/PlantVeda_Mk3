@@ -68,7 +68,7 @@ def _draw_meta_row(c, width, height, habitat, soil, area, budget, ts):
     meta_y = height - 138
     c.setFont(pdf_font, 8.5)
     c.setFillColor(HexColor('#4E7A4F'))
-    meta_text = f"Habitat: {habitat}  |  Soil: {soil}  |  Area: {area}m²  |  Budget: ₹{budget}  |  {ts}"
+    meta_text = f"Habitat: {habitat}  |  Soil: {soil}  |  Area: {area}m²  |  Budget: Rs.{budget}  |  {ts}"
     c.drawString(30, meta_y, meta_text)
     c.setStrokeColor(C_ACCENT)
     c.line(30, meta_y - 5, width - 30, meta_y - 5)
@@ -93,7 +93,7 @@ def _draw_plant_card(c, rank, plant_dict, x, y, card_w, card_h):
     c.drawString(x + 25, y + card_h - 25, f"#{rank} {plant_dict['name']}")
     
     c.setFont(pdf_font, 9)
-    stats = f"Count: {plant_dict['count']} | Carbon: {plant_dict['carbon']}kg | Cost: ₹{plant_dict['cost_per_unit']}"
+    stats = f"Count: {plant_dict['count']} | Carbon: {plant_dict['carbon']}kg | Cost: Rs.{plant_dict['cost_per_unit']}"
     c.drawString(x + 25, y + 15, stats)
 
 # ── 4. Main Public Function ──────────────────────────────────────────────────
